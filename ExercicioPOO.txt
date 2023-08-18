@@ -1,0 +1,110 @@
+                          ########################### POO #######################################
+
+
+A class é criada separada que terá atributos e metodos. Para melhor entendimento.
+
+
+Class Publica, qualquer atributos do codigo pode acessar.
+
+
+
+Class Privada, só atributos daquela class pode acessar.
+
+
+
+nome da classe tem de iniciar com letra MAIÚSCULA.
+nome do atributo tem de ser minúscula.
+
+
+
+long, int, double, float, char, etc... São tipos primitivos.
+
+
+
+String começa com letra maiúscula... Não é do tipo primitivo.
+
+
+EX:
+Dentro do metodo depositar conterá saldo = saldo + deposito
+
+cada metodo tem de ter um tipo.
+
+VOID significa um método que não retorna nada.
+
+EX: 
+
+public  void   depositar(double valor)
+tipo   retorno    nome      parametro
+
+dentro das classes tem de ter um comportamento, condições.
+
+Quando só tem 1 condição, não precisa colocar {}
+
+
+
+Construção class aba separada do Main:
+
+public class Contacorrente {
+    private long numero;
+    private String nome;
+    private int agencia;
+    private double saldo;
+
+    public void Depoisitar(double valor) {
+        saldo = saldo + valor;
+
+    }
+
+    public void Sacar(double valor) {
+        if (valor <= saldo) {
+            saldo = saldo - valor;
+        }else{
+            System.out.println("Saldo insuficiente");
+        }
+    }
+    public double ConsultarSaldo(){
+        return saldo;
+    }
+
+
+}
+ 
+
+Construção do Objeto dentro do Main:
+
+Contacorrente c1 = new Contacorrente();
+
+c1 => Objeto
+
+para chamar os metodos
+
+EX:
+c1.cadastrar(123, "Ana", 789);
+
+
+Cod Construção do Objeto dentro do Main:
+
+public class Main {
+    public static void main(String[] args) {
+          /*INIO CRIACAO OBJETO*/
+
+        Contacorrente c1 = new Contacorrente();// Cria objeto chamado c1 com Contacorrente
+
+        c1.Cadastrar(123,"Ana",789);
+        c1.Depoisitar(1000);
+
+        System.out.println("Saldo da conta: " +c1.ConsultarSaldo() );
+
+        c1.Sacar(2000);
+
+
+
+         /*FIM CRIACAO OBJETO*/
+
+    }
+}
+
+
+    
+
+ 
