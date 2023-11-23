@@ -1,1 +1,32 @@
-
+CREATE TABLE usuario (
+		 usuario_id SERIAL,		 
+		 nome varchar(30),
+		 email varchar(30),
+		 senha varchar(30),
+		 PRIMARY KEY (usuario_id)
+	);
+	CREATE TABLE amigos (
+		amigos_id   SERIAL,
+		usuario_id INT,
+		amigo_id INT,
+		PRIMARY KEY(amigos_id),
+		FOREIGN KEY (usuario_id) REFERENCES Usuario(usuario_id) on update restrict on delete restrict,
+		FOREIGN KEY (amigo_id) REFERENCES Usuario(usuario_id) on update restrict on delete restrict,
+		UNIQUE (usuario_id, amigo_id)
+	);
+	create table chat (
+	chat_id  SERIAL,
+	usuario1_id int,
+	usuario2_id int,
+	primary key(chat_id)
+	);
+	CREATE TABLE mensagem (
+		mensagem_id SERIAL,
+		usuario_id INT,
+		texto varchar ,
+		chat_id int,
+		primary key (mensagem_id),
+		FOREIGN KEY (usuario_id) REFERENCES Usuario(usuario_id) on update restrict on delete restrict ,
+		FOREIGN KEY (chat_id) REFERENCES chat(chat_id) on update restrict on delete restrict,		
+		UNIQUE (usuario_id)
+	);
