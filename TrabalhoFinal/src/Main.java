@@ -1,13 +1,18 @@
-import br.com.config.DAO.UsuarioDAO;
-import br.com.config.model.Usuario;
+import br.com.DAO.UsuarioDAO;
+import br.com.model.Usuario;
+import br.com.views.CadastroUsuario;
+import br.com.views.Login;
+import br.com.views.TelaInical;
+import br.com.views.TelaPrincipal;
 
+import javax.swing.*;
 import java.sql.SQLException;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
-        Usuario usuario = new Usuario("kimputinha","kimputinha123@gmail.com","souputinha");
-        UsuarioDAO usuarioDAO = new UsuarioDAO();
-        usuarioDAO.Inserir(usuario);
-
+        SwingUtilities.invokeLater(() -> {
+            TelaInical inicial = new TelaInical();
+            inicial.setVisible(true);
+        });
     }
 }
